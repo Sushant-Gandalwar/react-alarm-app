@@ -1,0 +1,45 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+:root {
+  --blue: #007bff;
+  --green: #7ed957;
+  --red: #dc3545;
+  --yellow: #ffc107 !important;
+}
+
+body {
+  overflow: hidden;
+  max-width: 100vw;
+}
+#ankitjha2603 {
+  overflow: auto;
+}
+button.add-alarm-button {
+  position: fixed;
+  top: 6px;
+}
+#cover {
+  background-color: #88888857;
+  height: 100vh;
+  width: 100vw;
+  z-index: 3;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: none;
+}
+.full-screen-center {
+  top: 0px;
+  position: fixed;
+  z-index: 5;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.full-screen-center.vertical-center {
+  align-items: center;
+}

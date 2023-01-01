@@ -1,0 +1,31 @@
+.add-element {
+  z-index: 4;
+  background-color: white;
+  min-height: 200px;
+  width: 240px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+label {
+  font-size: 1.17em;
+  margin: 5px 0px;
+}
+.add-alarm-buttons {
+  margin-right: 5px;
+  width: fit-content;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: 2px solid transparent;
+}
+.add-alarm-buttons:hover {
+  background: white;
+}
+.add-alarm-buttons#add-alarm-submit:hover {
+  border: 2px solid green;
+  color: green;
+}
+.add-alarm-buttons#cancel-alarm-submit:hover {
+  border: 2px solid red;
+  color: red;
+}

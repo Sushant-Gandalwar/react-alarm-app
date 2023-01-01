@@ -1,0 +1,30 @@
+.alarm-notification {
+  margin-top: 40px;
+  background-color: white;
+  z-index: 4;
+  width: 450px;
+  padding: 10px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 80vw;
+}
+.alarm-notification-text {
+  font-weight: 700;
+}
+.alarm-notification-button {
+  width: fit-content;
+  right: 10px;
+  background-color: #28a745;
+  padding: 3px 10px;
+  color: white;
+  cursor: pointer;
+  border: 2px solid #28a745;
+  border-radius: 3px;
+  align-self: flex-end;
+}
+.alarm-notification-button:hover {
+  color: #28a745;
+  background-color: white;
+}

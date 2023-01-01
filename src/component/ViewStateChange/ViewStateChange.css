@@ -1,0 +1,35 @@
+.viewStateSwap {
+  position: fixed;
+  display: flex;
+  font-weight: bold;
+  cursor: pointer;
+  right: 30vw;
+  top: 10px;
+}
+.view-state {
+  margin-left: 10px;
+  width: 90px;
+  padding: 0px 30px 6px 5px;
+  border-bottom: 3px solid transparent;
+}
+.view-state.selected-state {
+  padding-bottom: 0px;
+}
+.view-state.selected-state[name="view-active"] {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+.view-state.selected-state[name="view-success"] {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+.view-state.selected-state[name="view-missed"] {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+.view-state:not(.selected-state) {
+  color: #888888;
+}
+.view-state:not(.selected-state):hover {
+  border-bottom: 3px solid #888888;
+}

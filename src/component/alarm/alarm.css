@@ -1,0 +1,47 @@
+/*@font-face {
+  font-family: "digital";
+  src: local("digital"), url("digital.ttf") format("truetype");
+  font-weight: bold;
+}
+.digital {
+  font-family: "digital" !important;
+  font-size: 18px;
+}*/
+.table {
+  width: 80vw;
+  position: relative;
+}
+.table-responsive {
+  position: fixed;
+  height: 90vh;
+  top: 58px;
+}
+#root > table > thead > tr > th:nth-child(2) {
+  width: 40%;
+}
+.table-bb-danger {
+  border-bottom: 3px solid #f5c6cb;
+}
+.table-bb-success {
+  border-bottom: 3px solid #c3e6cb;
+}
+.table-bb-active {
+  border-bottom: 3px solid var(--blue);
+}
+td.dAlarm {
+  cursor: pointer;
+}
+td.dAlarm:hover {
+  color: var(--red);
+  text-decoration: underline;
+}
+@media only screen and (min-device-width: 360px) and (max-device-width: 640px) {
+  .table {
+    width: 90vw;
+    font-size: 12px !important;
+  }
+  .viewStateSwap {
+    right: 0vw !important;
+    font-size: 15px;
+  }
+}
