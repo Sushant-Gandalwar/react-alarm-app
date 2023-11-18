@@ -10,5 +10,12 @@ pipeline {
                 }
             }
         }
+         stage('local image') {
+            steps {
+                script{
+                   deploy_image_localy()
+                }
+            }
+        }
     }
 }
