@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('build image') {
             steps {
-                build_image()
+                script{
+                   build_image()
+                }
             }
         }
     }
