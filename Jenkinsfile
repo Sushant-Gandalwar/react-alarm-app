@@ -9,6 +9,11 @@ pipeline {
                    build_image()
                 }
             }
+            steps{
+             script{
+              deploy_image_localy()
+             }
+            }
         }
     }
 }
