@@ -1,5 +1,3 @@
-// projectA/Jenkinsfile
-
 @Library('my-shared-library') _
 
 pipeline {
@@ -12,16 +10,28 @@ pipeline {
     }
 
     stages {
-        script {
-            commonFunctions.callCheckout(this, params.GIT_URL)
+        stage('Checkout') {
+            steps {
+                script {
+                    commonFunctions.callCheckout(this, params.GIT_URL)
+                }
+            }
         }
 
-        script {
-            commonFunctions.buildImage(this, params.IMAGE_NAME)
+        stage('Build Image') {
+            steps {
+                script {
+                    commonFunctions.buildImage(this, params.IMAGE_NAME)
+                }
+            }
         }
 
-        script {
-            commonFunctions.accessImageLocally(this, params.PORT, params.IMAGE_NAME)
+        stage('Access Image Locally') {
+            steps {
+                script {
+                    commonFunctions.accessImageLocally(this)
+                }
+            }
         }
     }
 }
