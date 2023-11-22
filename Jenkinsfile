@@ -1,28 +1,27 @@
-// Jenkinsfile
+// projectA/Jenkinsfile
 
-@Library('my-shared-library') _
+@Library('shared-library-repo') _
 
 pipeline {
     agent any
 
     parameters {
-        string(name: 'GIT_URL', description: 'GitHub Repository URL')
+        string(name: 'GIT_URL', description: 'GitHub Repository URL for Project A')
+        string(name: 'IMAGE_NAME', description: 'Docker Image Name for Project A', defaultValue: 'projecta-image')
+        string(name: 'PORT', description: 'Port for Project A', defaultValue: '8086')
     }
 
     stages {
         script {
-            // Call the shared library function for Git checkout
             commonFunctions.callCheckout(this, params.GIT_URL)
         }
 
         script {
-            // Call the shared library function for building the image
-            commonFunctions.buildImage(this)
+            commonFunctions.buildImage(this, params.IMAGE_NAME)
         }
 
         script {
-            // Call the shared library function for accessing the image locally
-            commonFunctions.accessImageLocally(this)
+            commonFunctions.accessImageLocally(this, params.PORT, params.IMAGE_NAME)
         }
     }
 }
