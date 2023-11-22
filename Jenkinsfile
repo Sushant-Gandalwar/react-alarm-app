@@ -1,37 +1,30 @@
-@Library('my-shared-library') _
-
 pipeline {
     agent any
-
-    parameters {
-        string(name: 'GIT_URL', description: 'GitHub Repository URL for Project A')
-        string(name: 'IMAGE_NAME', description: 'Docker Image Name for Project A', defaultValue: 'projecta-image')
-        string(name: 'PORT', description: 'Port for Project A', defaultValue: '8086')
-    }
 
     stages {
         stage('Checkout') {
             steps {
+               
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Sushan-Gandalwar/react-alarm-app.git']])
+                sh 'echo "Building the project"'
+            }
+        }
+
+        stage('build image') {
+            steps {
                 script {
-                    commonFunctions.callCheckout(this, params.GIT_URL)
+                    sh 'docker build -t jaydeep .'
+                }
+            }
+        }
+        stage('access image locally'){
+            steps{
+                script{
+                    sh 'docker run -p 8085:3000 jaydeep'
                 }
             }
         }
 
-        stage('Build Image') {
-            steps {
-                script {
-                    commonFunctions.buildImage(this, params.IMAGE_NAME)
-                }
-            }
-        }
-
-        stage('Access Image Locally') {
-            steps {
-                script {
-                    commonFunctions.accessImageLocally(this)
-                }
-            }
-        }
     }
 }
+
