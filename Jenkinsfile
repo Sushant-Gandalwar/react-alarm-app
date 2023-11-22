@@ -1,6 +1,6 @@
 // projectA/Jenkinsfile
 
-@Library('shared-library-repo') _
+@Library('my-shared-library') _
 
 pipeline {
     agent any
