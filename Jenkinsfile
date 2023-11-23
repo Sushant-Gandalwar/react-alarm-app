@@ -1,30 +1,26 @@
-pipeline {
-    agent any
+// Jenkinsfile
+@Library('shared-utils') _
 
-    stages {
-        stage('Checkout') {
-            steps {
-               
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Sushan-Gandalwar/react-alarm-app.git']])
-                sh 'echo "Building the project"'
-            }
-        }
+def pipelineConfig = [
+    scmUrl: 'https://github.com/Sushan-Gandalwar/react-alarm-app.git',
+    branch: '*/main'
+]
 
-        stage('build image') {
-            steps {
-                script {
-                    sh 'docker build -t jaydeep .'
-                }
-            }
-        }
-        stage('access image locally'){
-            steps{
-                script{
-                    sh 'docker run -p 8085:3000 jaydeep'
-                }
-            }
-        }
+shared.utils.PipelineUtils.createPipeline(pipelineConfig)
 
+// Additional stages for building Docker image and accessing it locally
+stage('Build Image') {
+    steps {
+        script {
+            sh 'docker build -t jaydeep .'
+        }
     }
 }
 
+stage('Access Image Locally') {
+    steps {
+        script {
+            sh 'docker run -p 8085:3000 jaydeep'
+        }
+    }
+}
