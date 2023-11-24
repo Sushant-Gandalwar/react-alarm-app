@@ -1,4 +1,4 @@
-// Jenkinsfile
+
 @Library('shared-utils') _
 
 def pipelineConfig = [
@@ -8,4 +8,3 @@ def pipelineConfig = [
 
 shared.utils.PipelineUtils.createPipeline(pipelineConfig)
 
-// Additional stages for building Docker image and accessing it locally
