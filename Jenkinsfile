@@ -1,13 +1,12 @@
 @Library('shared-utils') _
  
- 
-akkaDeliveryPipeline(scmUrl: 'git@github.com:RETISIO/arc-search-config.git',
-                                          branch: env.BRANCH_NAME,
-                      bitbucketCredentialsId: 'cicdadminaie',
-                      appName: 'searchconfig',
-                      dockerDirectory: 'target/docker/stage',
-                      dockerImage: 'gcr.io/cloudopsplatform/searchconfig',
-                      dockerCredentialsId: 'cloudopsplatform',
-                      databaseCredentialsId: 'searchconfig-db-creds',
-                      unitTests: false,
-                      flywayMigrate: true)
+akkaDeliveryPipeline(
+    scmUrl: 'https://github.com/Sushan-Gandalwar/react-alarm-app.git',
+    branch: env.BRANCH_NAME,
+    appName: 'alarm',
+    dockerDirectory: 'target/docker/stage',
+    dockerImage: 'sushantgandalwar/alarm',
+    dockerCredentialsId: 'sushantgandalwar',
+    unitTests: false
+)
+
