@@ -1,6 +1,6 @@
 @Library('shared-utils') _
  
-akkaDeliveryPipeline(
+pipelineUtils(
     scmUrl: 'https://github.com/Sushan-Gandalwar/react-alarm-app.git',
     branch: env.BRANCH_NAME,
     appName: 'alarm',
