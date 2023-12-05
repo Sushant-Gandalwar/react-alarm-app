@@ -9,4 +9,4 @@ def pipelineParams = [
     unitTests: false
 ]
 
-pipelineUtils(pipelineParams)
+pipelineUtils.pipeline(pipelineParams)
