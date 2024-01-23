@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: nginx
+      image: gcr.io/jenkins-407204/demo@sha256:c0859b4428bf4c04a72b4f323a62cd306ac0cfa5ce5447250ea5466d5f96c4a8
+      ports:
+        - containerPort: 80
