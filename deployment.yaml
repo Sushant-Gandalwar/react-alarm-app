@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: hello
-          image: gcr.io/jenkins-407204/demo@sha256:1553eaedaee5aff0c08e0f4e6757e6fb98bc529550f9e47e0c62711ee89ba44e
+          image: sushantgandalwar/hello:latest
           imagePullPolicy: Always
           ports:
           - containerPort: 5000
