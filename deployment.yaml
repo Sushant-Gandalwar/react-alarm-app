@@ -1,10 +1,43 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: nginx
+  name: hello
+  labels:
+    app: hello
 spec:
-  containers:
-  - name: nginx
-    image: nginx:1.14.2
-    ports:
-    - containerPort: 80
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: hello
+      
+  template:
+    metadata:
+      labels:
+        app: hello
+        tier: hello
+    spec:
+      containers:
+        - name: hello
+          image: gcr.io/jenkins-407204/demo@sha256:1553eaedaee5aff0c08e0f4e6757e6fb98bc529550f9e47e0c62711ee89ba44e
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 5000
+            name: hello
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+  labels:
+    app: hello
+spec:
+  ports:
+    - port: 5000
+      targetPort: 5000
+  selector:
+    app: hello
+    tier: hello
+  type: LoadBalancer 
