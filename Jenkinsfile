@@ -3,7 +3,6 @@
 index(
     scmUrl: 'https://github.com/Sushant-Gandalwar/react-alarm-app.git',
     appName: 'react-app-demo',
-    branch: env.BRANCH_NAME, 
     bitbucketCredentialsId: 'sushant-git',  
     dockerDirectory: '/var/lib/jenkins/workspace/demo',
     dockerImage: 'gcr.io/jenkins-407204/demo',
